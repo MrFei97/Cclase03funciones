@@ -1,31 +1,38 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-//Declaracion o prototipo
-int saludar(int);
+int getInt(char mensaje[],char mensajeError[], int min, int max);
 
 int main()
 {
-    //llamada o invocacion
-
-    int valor;
-
-    valor = saludar(4);
-
-    printf("El numero ingresado es: %d\n", valor);
+    int numero;
+    int edad;
+    int legajo;
 
 
+    edad = getInt("Ingrese edad: ", "Error, reingrese edad: ", 1, 18);
+
+    legajo = getInt("Ingrese legajo: ","Error, reingrese legajo", 1000, 5000);
+
+
+    printf("La edad es: %d\n", edad);
+    printf("El legajo es: %d", legajo);
     return 0;
 }
 
-int saludar(int numero)
+
+int getInt(char mensaje[],char mensajeError[], int min, int max)
 {
+    int valorEntero;
 
-    int unEntero;
+    printf("%s", mensaje);
+    scanf("%d", &valorEntero);
+     while(valorEntero <  min|| valorEntero > max )
+    {
+        printf("%s", mensajeError);
+        scanf("%d", &valorEntero);
+    }
 
-   printf("Hola a todos el numero es %d\n", numero);
-   printf("Ingrese un numero: ");
-   scanf("%d", &unEntero);
-
-   return unEntero;
+    return valorEntero;
 }
+
