@@ -2,18 +2,30 @@
 #include <stdlib.h>
 
 //Declaracion o prototipo
-void saludar(void);
+int saludar(int);
 
 int main()
 {
     //llamada o invocacion
 
-    saludar();
+    int valor;
+
+    valor = saludar(4);
+
+    printf("El numero ingresado es: %d\n", valor);
+
 
     return 0;
 }
 
-void saludar(void)
+int saludar(int numero)
 {
-   printf("Hola a todos.");
+
+    int unEntero;
+
+   printf("Hola a todos el numero es %d\n", numero);
+   printf("Ingrese un numero: ");
+   scanf("%d", &unEntero);
+
+   return unEntero;
 }
